@@ -1,8 +1,6 @@
 # KangarooGHPython
 
-Examples of how to implement [Kangaroo2](http://www.food4rhino.com/project/kangaroo) in [GHPython](http://www.food4rhino.com/project/ghpython). Please note that these examples are a first attempt at using Kangaroo2 with GHPython. So use with caution and be aware that there may be better approaches. Feedback and suggestions are more than welcome.
-
-The implementation has the following dependencies which will need to be installed on your system (see dependencies folder):
+Examples of how to implement [Kangaroo2](http://www.food4rhino.com/project/kangaroo) in [GHPython](http://www.food4rhino.com/project/ghpython). Please note that these examples are a first attempt at using Kangaroo2 with GHPython. So use with caution and be aware that there may be better approaches. Feedback and suggestions are more than welcome. The implementation has the following dependencies which will need to be installed on your system:
 
 ghpython.gha <br/>
 KangarooSolver.dll <br/>
@@ -11,6 +9,7 @@ KangarooSolver.dll <br/>
 1) Move the files to the Grasshopper Libraries folder (%appdata%\Grasshopper\Libraries). <br/>
 2) Unblock them (right-click the file -> Properties -> Unblock -> Ok). <br/>
 
+**Add the Grasshopper Libraries folder path to the RhinoPython paths list**
 In order to implement KangarooSolver.dll using GHPython you will need to add the Grasshopper Libraries folder path to the RhinoPython paths list:
 
 1) In Rhino type in the command "EditPythonScript".<br/>
