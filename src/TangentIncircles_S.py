@@ -6,6 +6,7 @@ Github: github.com/AndersDeleuran/KangarooGHPython
 Updated: 150429
 """
 
+import Rhino as rc
 import Grasshopper as gh
 import clr
 clr.AddReferenceToFile("KangarooSolver.dll")
@@ -15,7 +16,14 @@ import KangarooSolver as ks
 GL = []
 
 # Iterate inputs and make goals
-for geo in G:
-    gow = gh.Kernel.Types.GH_ObjectWrapper(gh.Kernel.Types.GH_Mesh(geo)) # Must be a more general way of doing this
+for g in G:
+    
+    if isinstance(g,rc.Geometry.Mesh):
+        gGh = gh.Kernel.Types.GH_Mesh(g)
+        
+    elif isinstance(g,rc.Geometry.Point3d):
+        gGh = gh.Kernel.Types.GH_Point(g)
+        
+    gow = gh.Kernel.Types.GH_ObjectWrapper(gGh) # Must already be a more general way of doing this
     gl = ks.Goals.Locator(gow)
     GL.append(gl)
