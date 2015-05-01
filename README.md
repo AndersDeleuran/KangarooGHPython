@@ -9,7 +9,7 @@ KangarooSolver.dll <br/>
 1) Move the files to the Grasshopper Libraries folder (%appdata%\Grasshopper\Libraries). <br/>
 2) Unblock them (right-click the file -> Properties -> Unblock -> Ok). <br/>
 
-**Add the Grasshopper Libraries folder path to the RhinoPython paths list**
+**Add the Grasshopper Libraries folder path to the RhinoPython paths list**<br/>
 In order to implement KangarooSolver.dll using GHPython you will need to add the Grasshopper Libraries folder path to the RhinoPython paths list:
 
 1) In Rhino type in the command "EditPythonScript".<br/>
