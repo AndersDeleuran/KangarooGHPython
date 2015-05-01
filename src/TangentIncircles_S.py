@@ -3,7 +3,7 @@ How to make and output Kangaroo2 goals.
 -
 Author: Anders Holden Deleuran
 Github: github.com/AndersDeleuran/KangarooGHPython
-Updated: 150429
+Updated: 150501
 """
 
 import Rhino as rc
