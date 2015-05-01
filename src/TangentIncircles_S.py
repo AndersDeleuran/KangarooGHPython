@@ -7,23 +7,23 @@ Updated: 150501
 """
 
 import Rhino as rc
-import Grasshopper as gh
 import clr
 clr.AddReferenceToFile("KangarooSolver.dll")
 import KangarooSolver as ks
+import Grasshopper.Kernel.Types as gkt
 
 # Make empty output list
 GL = []
 
-# Iterate inputs and make goals
-for g in G:
+# Iterate inputs and make locator goals
+for geo in G:
     
-    if isinstance(g,rc.Geometry.Mesh):
-        gGh = gh.Kernel.Types.GH_Mesh(g)
+    if isinstance(geo,rc.Geometry.Mesh):
+        gGh = gkt.GH_Mesh(geo)
         
-    elif isinstance(g,rc.Geometry.Point3d):
-        gGh = gh.Kernel.Types.GH_Point(g)
+    elif isinstance(geo,rc.Geometry.Point3d):
+        gGh = gkt.GH_Point(geo)
         
-    gow = gh.Kernel.Types.GH_ObjectWrapper(gGh) # Must already be a more general way of doing this
-    gl = ks.Goals.Locator(gow)
+    gow = gkt.GH_ObjectWrapper(gGh)
+    gl = ks.Goals.Locator(gow) # Does this need to know about Grasshopper types?
     GL.append(gl)
