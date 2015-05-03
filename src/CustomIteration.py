@@ -15,7 +15,7 @@ from System.Collections.Generic import List
 # Make solver system and goals list
 ps = ks.PhysicalSystem()
 goals = List[ks.IGoal]()
-tol = 0.0001 # points closer than this will get combined into a single particle
+tol = 0.0001 # Psoints closer than this will get combined into a single particle
 
 # Assign indexes to the particles in each Goal
 for g in x:
