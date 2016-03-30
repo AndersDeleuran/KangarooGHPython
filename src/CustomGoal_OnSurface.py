@@ -17,4 +17,4 @@ class CustomGoal(ks.GoalObject):
         pt = p[self.PIndex[0]].Position
         self.Move[0] = self.brep.ClosestPoint(pt) - pt
 
-GoalObject = CustomGoal(P, S, k)
+GoalObject = [CustomGoal(point, S, k) for point in P]
