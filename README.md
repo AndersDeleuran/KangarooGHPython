@@ -17,3 +17,5 @@ In order to implement KangarooSolver.dll using GHPython you will need to add the
 3) Here you will see an overview of the directories which are currently referenced.<br/>
 4) Add a reference to the Grasshopper Libraries folder (it may be hidden, of so [unhide it](http://www.sevenforums.com/tutorials/56005-file-folder-hide-unhide.html)).<br/>
 5) Restart Rhino.<br/>
+
+Push test from Sublime Merge.
