@@ -1,37 +1,34 @@
-﻿"""
+"""
 Solve Kangaroo2 goals using a custom iteration script ala Zombie mode.
 Based on Daniel Pikers CustomIteration.gh definition.
 -
 Author: Anders Holden Deleuran
 Github: github.com/AndersDeleuran/KangarooGHPython
-Updated: 150502
+Updated: 160330
 """
 
 import clr
-clr.AddReferenceToFile("KangarooSolver.dll")
-import KangarooSolver as ks
 from System.Collections.Generic import List
 
-# Make solver system and goals list
+clr.AddReferenceToFile("KangarooSolver.dll")
+import KangarooSolver as ks
+
+TOLERANCE = 0.0001  # points closer than this get merged
+MAX_ITER = 100  # simulation stops after max iterations
+
 ps = ks.PhysicalSystem()
 goals = List[ks.IGoal]()
-tol = 0.0001 # Points closer than this will get combined into a single particle
 
-# Assign indexes to the particles in each Goal
-for g in x:
-    ps.AssignPIndex(g,tol)
-    goals.Add(g)
+for goal in GoalObjects:
+    ps.AssignPIndex(goal, TOLERANCE)  # Assign indices to particles in each Goal
+    goals.Add(goal)
 
-# System state variables
 counter = 0
-threshold = 1e-10
-
-# Solve zombie style i.e. max N iterations, break when system kinetic energy drops below threshold
-while counter < 100:
-    ps.Step(goals,True,threshold)
+while counter < MAX_ITER:
     counter += 1
-    if ps.GetvSum() < threshold:
-        break
 
-A = ps.GetOutput(goals)
-B = counter
+    ps.Step(goals, parallel=False, ke=Threshold)  # parallel is slower here. 
+    if ps.GetvSum() < Threshold:
+        break  # simulation stops when kinetic energy drops below threshold
+
+O = ps.GetOutput(goals)
